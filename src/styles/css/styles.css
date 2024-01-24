@@ -1,0 +1,907 @@
+:root {
+  --principal-color: #ffffff;
+  --secondary-color: #10365c;
+  --background-color: #f2f7f9;
+  --transparent-color: transparent;
+  --border-reviews-color: #e5e6e7;
+  --company-color: #a5a6a7;
+  --icon-color: #b5b6b7;
+  --title-color: #222222;
+  --subtitle-color: #888;
+  --text-color: #555;
+  --background-certificates-color: #f5f5f5;
+  --background-contact-color: #fcfcfc;
+}
+
+html {
+  font-size: 62.5%;
+}
+
+body {
+  width: 100%;
+  height: 100%;
+  font-family: "Poppins", Helvetica, sans-serif;
+  font-size: 1.5rem;
+  background-color: var(--background-color);
+  color: var(--text-color);
+  overflow: hidden;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  color: var(--title-color);
+}
+
+/* Background Image */
+body {
+  background-image: url("/img/fondo.png");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: -20px -120px;
+}
+
+/* Layout */
+.layout {
+  position: relative;
+  min-width: 1290px;
+  width: 75%;
+  height: 80vh;
+  min-height: 80vh;
+  margin: 10vh auto;
+  display: grid;
+  grid-template-areas: "aside content";
+  grid-template-columns: 30% 70%;
+  /* Shadow */
+  border-radius: 4rem;
+  box-shadow: 0 0 100px -5px rgb(0, 0, 0, 0.25);
+}
+
+/* Blue Aside Bar */
+.layout__aside {
+  grid-area: aside;
+  border-radius: 4rem 0 0 4rem;
+  overflow: auto;
+  overflow-x: hidden;
+}
+.aside__user-info {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  min-height: 100%;
+  min-width: 30rem;
+
+  background-color: var(--secondary-color);
+  color: var(--principal-color);
+}
+
+.user-info__container-image {
+  position: relative;
+  display: inline-block;
+  height: 18rem;
+  width: 16rem;
+  margin-top: 4rem;
+  z-index: 1;
+}
+
+.user-info__image {
+  height: 100%;
+  width: 100%;
+  background-color: var(--principal-color);
+  border: 3px solid var(--principal-color);
+  border-radius: 20rem;
+}
+
+.user-info__container-image::after {
+  content: "";
+  position: absolute;
+  top: 5%;
+  left: 9%;
+  z-index: -1;
+  width: 100%;
+  height: 100%;
+  background-image: -webkit-repeating-radial-gradient(
+    center center,
+    #fff,
+    #fff 1px,
+    transparent 0px,
+    transparent 100%
+  );
+  background-size: 0.6rem 0.6rem;
+  opacity: 0.4;
+  border-radius: 30rem;
+}
+
+.user-info__name {
+  margin-top: 2.6rem;
+  font-size: 2.8rem;
+  font-weight: bold;
+  color: var(--principal-color);
+}
+
+.user-info__job {
+  font-size: 1.7rem;
+  font-weight: 200;
+  color: var(--principal-color);
+}
+
+.user-info__links {
+  margin-bottom: 3.6rem;
+}
+
+.links__social {
+  margin-top: 2rem;
+  text-align: center;
+  display: flex;
+  flex-direction: row;
+}
+
+.social__option {
+  height: 3rem;
+  width: 3rem;
+  font-size: 1.8rem;
+  line-height: 3.2rem;
+  opacity: 0.9;
+  border-radius: 3rem;
+  transition: all 300ms ease-in-out;
+}
+
+.social__option:hover {
+  opacity: 1;
+  background-color: rgba(255, 255, 255, 0.2);
+}
+
+.user-info__buttons {
+  margin-top: 1.5rem;
+  margin-bottom: 3.5rem;
+}
+
+.user-info___btn {
+  padding: 3rem;
+  padding-top: 1.3rem;
+  padding-bottom: 1.3rem;
+  border: 2px solid var(--principal-color);
+  border-radius: 3.2rem;
+  color: var(--principal-color);
+  box-shadow: 0 10px 10px -8px rgba(0, 0, 0, 0.25);
+  transition: all 300ms ease-in-out;
+}
+
+.user-info__buttons img {
+  display: none;
+}
+
+.user-info___btn:hover {
+  background-color: var(--principal-color);
+  color: var(--secondary-color);
+}
+
+.user-info__footer {
+  position: absolute;
+  bottom: 2rem;
+  font-size: 1.2rem;
+}
+
+/* Principal Content */
+.layout__content {
+  grid-area: content;
+  height: 100%;
+  min-height: 100%;
+
+  background-color: var(--secondary-color);
+  border-radius: 0 10rem 10rem 0;
+}
+
+.content__page {
+  min-height: 100%;
+  background-color: var(--principal-color);
+  border-radius: 3.2rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.page__name {
+  font-size: 5rem;
+  margin-bottom: 1rem;
+}
+
+.page__name--alt {
+  display: none;
+}
+
+.page__job {
+  font-size: 2.2rem;
+  font-weight: lighter;
+  color: var(--subtitle-color);
+}
+
+/* Nav Menu */
+.layout__menu {
+  display: block;
+  position: absolute;
+  top: 0;
+  right: -10.5rem;
+  min-width: 11rem;
+  background-color: var(--transparent-color);
+}
+
+.menu__list {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  width: 60%;
+  min-height: 32rem;
+  padding: 2rem 0;
+  margin-left: 2.5rem;
+  background-color: var(--principal-color);
+  box-shadow: 0 0 3rem -0.5rem rgba(0, 0, 0, 0.15);
+  border-radius: 6rem;
+}
+
+.menu__option {
+  display: block;
+  width: 100%;
+  text-align: center;
+}
+
+.menu__option:hover .menu__icon {
+  color: var(--secondary-color);
+}
+
+.menu__link--active .menu__icon {
+  color: var(--secondary-color);
+}
+
+.menu__icon {
+  color: var(--icon-color);
+  font-size: 2.8rem;
+  transition: all 300ms ease-in-out;
+}
+
+.menu__overlay {
+  position: absolute;
+  right: 0;
+  margin-top: -3rem;
+  z-index: 1;
+  display: block;
+  opacity: 0;
+  padding: 0.5rem 1rem;
+  color: var(--principal-color);
+  background-color: var(--secondary-color);
+  white-space: nowrap;
+  transition: all 300ms ease-in-out;
+}
+
+.menu__option:hover .menu__overlay {
+  opacity: 1;
+  right: 78%;
+}
+
+/* About me */
+
+.content__about,
+.content__resume,
+.content__portfolio,
+.content__contact {
+  height: 100%;
+  min-height: 100%;
+  padding: 6rem;
+  padding-right: 3rem;
+  overflow: auto;
+  background-color: var(--principal-color);
+  border-radius: 3.2rem;
+  display: block;
+}
+
+.about__header,
+.resume__header,
+.portfolio__header,
+.contact__header {
+  display: inline-block;
+  margin-bottom: 4.5rem;
+}
+
+.about__title,
+.resume__title,
+.portfolio__title,
+.contact__title {
+  font-size: 3.2rem;
+  position: relative;
+}
+
+.portfolio__title:hover {
+  color: var(--secondary-color);
+  text-shadow: 0 0 1px rgba(0, 0, 0, 0.5);
+}
+
+.about__title::after,
+.resume__title::after,
+.portfolio__title::after,
+.contact__title::after {
+  content: "";
+  position: absolute;
+  top: 2rem;
+  right: -2.5rem;
+  width: 5rem;
+  height: 3rem;
+  background-image: -webkit-repeating-radial-gradient(
+    center center,
+    var(--secondary-color),
+    var(--secondary-color) 1px,
+    transparent 0px,
+    transparent 100%
+  );
+  background-size: 6px 6px;
+  opacity: 0.5;
+}
+
+.title__color,
+.subtitle__color {
+  color: var(--secondary-color);
+}
+
+/* Personal Info */
+
+.about__personal-info {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  margin-bottom: 5rem;
+}
+
+.personal-info__bio {
+  flex-basis: 56%;
+}
+
+.personal-info__description {
+  font-size: 1.5rem;
+  line-height: 2.4rem;
+}
+
+.personal-info__data {
+  flex-basis: 44%;
+  padding: 0 1.5rem;
+}
+
+.personal-info__option {
+  margin-bottom: 1rem;
+}
+
+.personal-info__title {
+  margin-right: 0.5rem;
+  color: var(--secondary-color);
+  font-weight: bold;
+}
+
+/* Services */
+
+.about__services {
+  width: 100%;
+  margin-bottom: 3rem;
+}
+
+.services__header,
+.resume__subheader,
+.contact__form-header {
+  display: inline-block;
+  padding-right: 1.2rem;
+  margin-bottom: 2.5rem;
+  position: relative;
+}
+
+.services__title,
+.form-header__subtitle {
+  font-size: 2rem;
+}
+
+.resume__subtitle {
+  font-size: 1.8rem;
+}
+
+.services__title::after,
+.resume__subtitle::after,
+.form-header__subtitle::after {
+  content: "";
+  position: absolute;
+  top: 1.5rem;
+  right: 0;
+  width: 3rem;
+  height: 2rem;
+  background-image: -webkit-repeating-radial-gradient(
+    center center,
+    var(--secondary-color),
+    var(--secondary-color) 1px,
+    transparent 0px,
+    transparent 100%
+  );
+  background-size: 6px 6px;
+  opacity: 0.5;
+}
+
+.services__container {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+
+.services__service {
+  flex-basis: calc(50% - 3rem);
+  margin-right: 3rem;
+  margin-bottom: 3rem;
+}
+
+.service__real-icon {
+  color: var(--secondary-color);
+  font-size: 3.8rem;
+}
+
+.service__title {
+  font-size: 1.8rem;
+  margin: 0.5rem 0;
+  color: var(--secondary-color);
+}
+
+.service__description {
+  font-size: 1.5rem;
+  text-align: justify;
+}
+
+/* Curriculum */
+
+.resume__container {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+}
+
+.resumen__left {
+  flex-basis: 58%;
+  margin-right: 1.5rem;
+}
+
+.resume__timelines {
+  margin-bottom: 5rem;
+}
+
+.timelines__timeline {
+  position: relative;
+  width: 100%;
+  margin-bottom: 1.5rem;
+  display: flex;
+  flex-direction: row;
+}
+
+.timeline__header {
+  flex-basis: 30%;
+  text-align: right;
+  padding-right: 2.5rem;
+}
+
+.timeline__year {
+  margin: 0.3rem 0;
+  line-height: 1.9rem;
+  font-size: 1.4rem;
+}
+
+.timeline__company {
+  display: block;
+  font-size: 1.3rem;
+  font-weight: lighter;
+  color: var(--company-color);
+}
+
+.timeline__description {
+  width: 70%;
+  padding-left: 2.5rem;
+  padding-right: 1.5rem;
+}
+
+.timeline__title {
+  font-size: 1.6rem;
+  margin-bottom: 0.3rem;
+}
+
+.timeline__text {
+  font-size: 1.4rem;
+  margin-bottom: 1rem;
+}
+
+.timeline__divider {
+  position: absolute;
+  top: 0;
+  left: 30%;
+  bottom: -1.8rem;
+  width: 1px;
+  height: auto;
+  background-color: var(--scrollbar-color);
+}
+
+.timeline__divider::before {
+  content: "";
+  position: absolute;
+  margin-top: 0.4rem;
+  margin-left: -0.8rem;
+  width: 1.7rem;
+  height: 1.7rem;
+  background-color: var(--secondary-color);
+  border-radius: 10rem;
+  opacity: 0.25;
+}
+
+.timeline__divider::after {
+  content: "";
+  position: absolute;
+  margin-top: 0.8rem;
+  margin-left: -0.4rem;
+  width: 0.9rem;
+  height: 0.9rem;
+  background-color: var(--principal-color);
+  border: 2px solid var(--secondary-color);
+  border-radius: 10rem;
+  opacity: 1;
+}
+
+.resume__right {
+  flex-basis: 41%;
+  padding: 0 1.5rem;
+}
+
+.resume__skills {
+  width: 100%;
+  margin-bottom: 3rem;
+}
+
+.skills__title {
+  display: flex;
+  justify-content: space-between;
+}
+
+.skills__text {
+  font-size: 1.3rem;
+  line-height: 1.4rem;
+  margin-bottom: 0.4rem;
+}
+
+.skills__number {
+  font-size: 1.1rem;
+  line-height: 1.4rem;
+  margin-bottom: 0.4rem;
+  color: var(--subtitle-color);
+}
+
+.skills__progressbar {
+  display: inline-block;
+  height: 1rem;
+  width: 100%;
+  border: 1px solid var(--secondary-color);
+  border-radius: 1rem;
+  background-color: var(--principal-color);
+  margin-bottom: 1rem;
+}
+
+.skills__percentage {
+  height: 0.8rem;
+  background-color: var(--secondary-color);
+  border: 2px solid var(--principal-color);
+  border-radius: 1rem;
+}
+
+.skills__percentage--90 {
+  width: 90%;
+}
+.skills__percentage--80 {
+  width: 80%;
+}
+.skills__percentage--70 {
+  width: 70%;
+}
+.skills__percentage--60 {
+  width: 60%;
+}
+
+.knowlegeds__list {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+
+.knowlegeds__option {
+  padding: 0.4rem 1rem;
+  margin: 0.3rem;
+  font-size: 1.3rem;
+  background-color: var(--secondary-color);
+  border-radius: 0.5rem;
+  color: var(--principal-color);
+}
+
+.certificates__container {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  gap: 3rem;
+}
+
+.certificates__certificate {
+  flex-basis: calc(50% - 3rem);
+  border: 2px solid var(--border-reviews-color);
+  border-radius: 0.3rem;
+  display: flex;
+  flex-direction: row;
+}
+
+.certificate__logo {
+  width: 15rem;
+  height: 100%;
+  padding: 2.5rem;
+  background-color: var(--icon-color);
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+.certificate__image {
+  width: 100%;
+}
+
+.certificate__content {
+  padding: 2rem 2.5rem;
+}
+
+.certificate__title {
+  font-size: 1.6rem;
+  margin-bottom: 0.5rem;
+}
+
+.certificate__date {
+  font-size: 1.2rem;
+  color: var(--subtitle-color);
+  opacity: 0.7;
+}
+
+/* Portfolio */
+
+.portfolio__navbar {
+  margin-bottom: 3rem;
+}
+
+.portfolio__menu {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+}
+
+.portfolio__option {
+  font-size: 1.3rem;
+  opacity: 0.7;
+}
+
+.portfolio__option--active {
+  opacity: 1;
+}
+
+.portfolio__link {
+  cursor: pointer;
+}
+
+.portfolio__link:hover {
+  color: var(--secondary-color);
+  text-shadow: 0 0 1px rgba(0, 0, 0, 0.25);
+}
+
+.portfolio__gallery {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+
+.gallery__item {
+  position: relative;
+  flex-basis: 33%;
+  padding: 0.7rem;
+}
+
+.gallery__container-image {
+  overflow: hidden;
+  z-index: -1;
+}
+
+.gallery__image {
+  width: 28rem;
+  height: 18rem;
+  transition: all 300ms ease-in-out;
+}
+
+.gallery__item:hover .gallery__image {
+  transform: scale(1.1);
+}
+
+.gallery__title {
+  font-size: 1.6rem;
+  padding: 1.5rem 0;
+  font-weight: bold;
+}
+
+.gallery__icon {
+  opacity: 0;
+  position: absolute;
+  top: 1.5rem;
+  right: 1.5rem;
+  width: 3rem;
+  height: 3rem;
+  font-size: 1.6rem;
+  text-align: center;
+  line-height: 3rem;
+  background-color: var(--principal-color);
+  color: var(--secondary-color);
+  transition: all 400ms ease-in-out;
+}
+
+.gallery__category {
+  opacity: 0;
+  position: absolute;
+  top: 1.5rem;
+  left: 1.5rem;
+  padding: 0.2rem 0.7rem;
+  font-size: 1.1rem;
+  background-color: var(--principal-color);
+  color: var(--text-color);
+  transition: all 400ms ease-in-out;
+}
+
+.gallery__item:hover .gallery__icon,
+.gallery__item:hover .gallery__category {
+  opacity: 1;
+}
+
+/* Contact Page */
+
+.contact__container {
+  display: flex;
+  flex-direction: row;
+}
+
+.contact__info {
+  flex-basis: 33%;
+  padding: 0 1.5rem;
+}
+
+.contact__data {
+  width: 100%;
+  margin-bottom: 1.5rem;
+  padding: 2rem 1rem;
+  text-align: center;
+  background-color: var(--background-contact-color);
+  border: 0.1rem solid var(--border-reviews-color);
+}
+
+.contact__icon {
+  font-size: 3.3rem;
+  color: var(--secondary-color);
+}
+
+.contact__subtitle {
+  font-size: 1.5rem;
+  margin-top: 1rem;
+}
+
+.contact__form-box {
+  flex-basis: 66%;
+  padding: 0 1.5rem;
+}
+
+.form__container {
+  display: flex;
+  flex-direction: row;
+}
+
+.form__left {
+  flex-basis: 47%;
+  margin-right: 1.5rem;
+}
+
+.form__group {
+  position: relative;
+  margin-bottom: 2.5rem;
+}
+
+.form__input {
+  position: relative;
+  width: 100%;
+  height: 4.2rem;
+  line-height: 2.1rem;
+  display: block;
+  font-size: 1.5rem;
+  padding: 1rem 1.2rem;
+  border: 0.2rem solid var(--background-certificates-color);
+  border-radius: 0.5rem;
+  outline: none;
+  box-shadow: 0 1rem 1rem -8px rgba(0, 0, 0, 0.1);
+  background: 0 0;
+  background-color: transparent;
+}
+
+.form__input:focus {
+  border: 0.2rem solid var(--secondary-color);
+}
+
+.form__label {
+  position: absolute;
+  top: 1rem;
+  left: 1.5rem;
+  color: var(--company-color);
+  transition: all 300ms ease-in-out;
+  pointer-events: none;
+}
+
+.form__input:focus ~ label,
+.form__input:not(:placeholder-shown) ~ label {
+  top: -2rem;
+  left: 0;
+  z-index: 1;
+  font-size: 1.3rem;
+  color: var(--secondary-color);
+}
+
+.form__input::-webkit-input-placeholder {
+  color: transparent;
+}
+
+.form__input::-moz-placeholder {
+  color: transparent;
+}
+
+.form__right {
+  flex-basis: 50%;
+  max-width: 50%;
+  max-height: 100%;
+}
+
+.form__group--textarea {
+  height: 100%;
+}
+
+.form__input--textarea {
+  display: block;
+  resize: none;
+  height: 100%;
+}
+
+.form__button {
+  padding: 1rem 3rem;
+  font-size: 1.5rem;
+  border: 0.2rem solid var(--secondary-color);
+  color: var(--title-color);
+  background-color: var(--principal-color);
+  border-radius: 3rem;
+  box-shadow: 0 1rem 1rem -8px rgba(0, 0, 0, 0.22);
+  cursor: pointer;
+  transition: all 30ms ease-in-out;
+}
+
+.form__button:hover {
+  color: var(--principal-color);
+  background-color: var(--secondary-color);
+}
+
+.contact__map {
+  width: 100%;
+  min-height: 15rem;
+  margin-bottom: 3.5rem;
+  overflow: hidden;
+}
+
+.contact__iframe {
+  width: 100%;
+  height: 14rem;
+}
