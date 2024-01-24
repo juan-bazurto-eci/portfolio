@@ -137,6 +137,7 @@
   }
 
   .menu__link {
+    cursor: pointer;
     text-decoration: none;
     display: block;
     padding: 1.2rem 0;

@@ -246,6 +246,7 @@ body {
 }
 
 .menu__option {
+  cursor: pointer;
   display: block;
   width: 100%;
   text-align: center;
