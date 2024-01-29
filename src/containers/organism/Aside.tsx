@@ -43,7 +43,7 @@ export const Aside = ({ page = "" }) => {
                   }`}
                 >
                   <i className="menu__icon fa-solid fa-house"></i>
-                  <span className="menu__overlay">Home</span>
+                  <span className="menu__overlay">Inicio</span>
                 </div>
               </li>
               <li

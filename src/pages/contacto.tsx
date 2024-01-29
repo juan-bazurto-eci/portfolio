@@ -1,9 +1,59 @@
 import { Aside } from "@/containers/organism/Aside";
 import Head from "next/head";
 import React, { useEffect, useState } from "react";
+import { Resend } from "resend";
 
 const ContactPage = () => {
   const [loading, setLoading] = useState(true);
+  const [sendSuccess, setSendSuccess] = useState(false);
+  const [formData, setFormData] = useState({
+    name: "",
+    email: "",
+    subject: "",
+    message: "",
+  });
+
+  const handleInputChange = (e: any) => {
+    const { name, value } = e.target;
+    setFormData((prevData) => ({
+      ...prevData,
+      [name]: value,
+    }));
+  };
+
+  const handleSubmmit = async (e: any) => {
+    e.preventDefault();
+
+    try {
+      const response = await fetch("/api/sendEmail", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(formData),
+      });
+
+      const data = await response.json();
+
+      if (data.success) {
+        setFormData({
+          name: "",
+          email: "",
+          subject: "",
+          message: "",
+        });
+        setSendSuccess(true);
+        setTimeout(() => {
+          setSendSuccess(false);
+        }, 2000);
+      } else {
+        console.error("Error sending email:", data.error);
+      }
+    } catch (error) {
+      console.error("Error sending email:", error);
+    }
+  };
+
   useEffect(() => {
     setTimeout(() => {
       setLoading(false);
@@ -66,7 +116,7 @@ const ContactPage = () => {
                   </h3>
                 </header>
 
-                <form className="contact__form">
+                <form className="contact__form" onSubmit={handleSubmmit}>
                   <div className="form__container">
                     <section className="form__left">
                       <div className="form__group">
@@ -76,6 +126,8 @@ const ContactPage = () => {
                           name="name"
                           required
                           placeholder="Nombre"
+                          value={formData.name}
+                          onChange={handleInputChange}
                         />
                         <label htmlFor="name" className="form__label">
                           Nombre
@@ -88,6 +140,8 @@ const ContactPage = () => {
                           name="email"
                           required
                           placeholder="Email"
+                          value={formData.email}
+                          onChange={handleInputChange}
                         />
                         <label htmlFor="email" className="form__label">
                           Email
@@ -100,6 +154,8 @@ const ContactPage = () => {
                           name="subject"
                           required
                           placeholder="Asunto"
+                          value={formData.subject}
+                          onChange={handleInputChange}
                         />
                         <label htmlFor="subject" className="form__label">
                           Asunto
@@ -113,6 +169,8 @@ const ContactPage = () => {
                           className="form__input form__input--textarea"
                           required
                           placeholder="Mensaje"
+                          value={formData.message}
+                          onChange={handleInputChange}
                         ></textarea>
                         <label htmlFor="message" className="form__label">
                           Mensaje
@@ -120,11 +178,20 @@ const ContactPage = () => {
                       </div>
                     </section>
                   </div>
-                  <input
-                    type="submit"
-                    className="form__button"
-                    value="Enviar mensaje"
-                  />
+                  {sendSuccess ? (
+                    <input
+                      disabled={true}
+                      type="submit"
+                      className="form__button--success"
+                      value="Mensaje Enviado"
+                    />
+                  ) : (
+                    <input
+                      type="submit"
+                      className="form__button"
+                      value="Enviar mensaje"
+                    />
+                  )}
                 </form>
               </section>
             </div>

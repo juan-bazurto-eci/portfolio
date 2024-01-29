@@ -1,6 +1,7 @@
 :root {
   --principal-color: #ffffff;
   --secondary-color: #10365c;
+  --success-color: #5cb85c;
   --background-color: #f2f7f9;
   --transparent-color: transparent;
   --border-reviews-color: #e5e6e7;
@@ -640,7 +641,6 @@ body {
 
 .certificate__logo {
   width: 15rem;
-  height: 100%;
   padding: 2.5rem;
   background-color: var(--icon-color);
 
@@ -652,6 +652,8 @@ body {
 
 .certificate__image {
   width: 100%;
+  aspect-ratio: 3/2;
+  object-fit: contain;
 }
 
 .certificate__content {
@@ -888,6 +890,22 @@ body {
   box-shadow: 0 1rem 1rem -8px rgba(0, 0, 0, 0.22);
   cursor: pointer;
   transition: all 30ms ease-in-out;
+}
+
+.form__button--success {
+  padding: 1rem 3rem;
+  font-size: 1.5rem;
+  border: 0.2rem solid var(--secondary-color);
+  color: var(--principal-color);
+  background-color: var(--success-color);
+  border-radius: 3rem;
+  box-shadow: 0 1rem 1rem -8px rgba(0, 0, 0, 0.22);
+  transition: all 30ms ease-in-out;
+}
+
+.form__button--success:hover {
+  color: var(--principal-color);
+  background-color: var(--success-color);
 }
 
 .form__button:hover {

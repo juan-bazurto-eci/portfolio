@@ -81,7 +81,7 @@ const CurriculumPage = () => {
                       <span className="timeline__company">Nivelics SAS</span>
                     </header>
                     <div className="timeline__divider"></div>
-                    <div className="timeline__description">
+                    <div className="timeline__description timeline__description--experience">
                       <h3 className="timeline__title">
                         Desarrollador FrontEnd
                       </h3>
