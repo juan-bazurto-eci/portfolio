@@ -24,10 +24,10 @@ export const Aside = ({ page = "" }) => {
             <div className="user-info__container-image">
               <Image
                 className="user-info__image"
-                src="/assets/img/default-user.jpg"
+                src="/assets/img/user.jpeg"
                 alt="Juan Camilo Bazurto"
-                width={1000}
-                height={1000}
+                width={100}
+                height={100}
               />
             </div>
             <h2 className="user-info__name">Juan Bazurto</h2>

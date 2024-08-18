@@ -1,6 +1,6 @@
 :root {
   --principal-color: #ffffff;
-  --secondary-color: #10365c;
+  --secondary-color: #004b19;
   --success-color: #5cb85c;
   --background-color: #f2f7f9;
   --transparent-color: transparent;
@@ -68,6 +68,7 @@ body {
   overflow: auto;
   overflow-x: hidden;
 }
+
 .aside__user-info {
   display: flex;
   flex-direction: column;
@@ -95,6 +96,7 @@ body {
   background-color: var(--principal-color);
   border: 3px solid var(--principal-color);
   border-radius: 20rem;
+  object-fit: cover;
 }
 
 .user-info__container-image::after {
@@ -105,13 +107,11 @@ body {
   z-index: -1;
   width: 100%;
   height: 100%;
-  background-image: -webkit-repeating-radial-gradient(
-    center center,
-    #fff,
-    #fff 1px,
-    transparent 0px,
-    transparent 100%
-  );
+  background-image: -webkit-repeating-radial-gradient(center center,
+      #fff,
+      #fff 1px,
+      transparent 0px,
+      transparent 100%);
   background-size: 0.6rem 0.6rem;
   opacity: 0.4;
   border-radius: 30rem;
@@ -333,13 +333,11 @@ body {
   right: -2.5rem;
   width: 5rem;
   height: 3rem;
-  background-image: -webkit-repeating-radial-gradient(
-    center center,
-    var(--secondary-color),
-    var(--secondary-color) 1px,
-    transparent 0px,
-    transparent 100%
-  );
+  background-image: -webkit-repeating-radial-gradient(center center,
+      var(--secondary-color),
+      var(--secondary-color) 1px,
+      transparent 0px,
+      transparent 100%);
   background-size: 6px 6px;
   opacity: 0.5;
 }
@@ -416,13 +414,11 @@ body {
   right: 0;
   width: 3rem;
   height: 2rem;
-  background-image: -webkit-repeating-radial-gradient(
-    center center,
-    var(--secondary-color),
-    var(--secondary-color) 1px,
-    transparent 0px,
-    transparent 100%
-  );
+  background-image: -webkit-repeating-radial-gradient(center center,
+      var(--secondary-color),
+      var(--secondary-color) 1px,
+      transparent 0px,
+      transparent 100%);
   background-size: 6px 6px;
   opacity: 0.5;
 }
@@ -599,12 +595,15 @@ body {
 .skills__percentage--90 {
   width: 90%;
 }
+
 .skills__percentage--80 {
   width: 80%;
 }
+
 .skills__percentage--70 {
   width: 70%;
 }
+
 .skills__percentage--60 {
   width: 60%;
 }
@@ -847,8 +846,8 @@ body {
   pointer-events: none;
 }
 
-.form__input:focus ~ label,
-.form__input:not(:placeholder-shown) ~ label {
+.form__input:focus~label,
+.form__input:not(:placeholder-shown)~label {
   top: -2rem;
   left: 0;
   z-index: 1;

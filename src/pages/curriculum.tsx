@@ -77,6 +77,35 @@ const CurriculumPage = () => {
                 <div className="resume__timelines">
                   <article className="timelines__timeline">
                     <header className="timeline__header">
+                      <h4 className="timeline__year">2024</h4>
+                      <span className="timeline__company">Inteia</span>
+                    </header>
+                    <div className="timeline__divider"></div>
+                    <div className="timeline__description timeline__description--experience">
+                      <h3 className="timeline__title">
+                        Desarrollador FrontEnd
+                      </h3>
+                      <p className="timeline__text">
+                        Desarrollé interfaces de usuario avanzadas para una
+                        plataforma de gestión de tráfico, utilizando React.js,
+                        Redux Toolkit y TypeScript.
+                      </p>
+                      <p className="timeline__text">
+                        Trabajé en la conexión con APIs RESTful para operaciones
+                        en tiempo real también integrando el control de cámaras
+                        de tráfico y paneles de señalización, realicé pruebas
+                        unitarias y aseguré la calidad del código con
+                        SonarCloud.
+                      </p>
+                      <p className="timeline__text">
+                        Mi enfoque estuvo en mejorar continuamente la
+                        experiencia del usuario y adaptar soluciones a
+                        requisitos técnicos complejos en entornos desafiantes.
+                      </p>
+                    </div>
+                  </article>
+                  <article className="timelines__timeline">
+                    <header className="timeline__header">
                       <h4 className="timeline__year">2021-2024</h4>
                       <span className="timeline__company">Nivelics SAS</span>
                     </header>
@@ -89,9 +118,12 @@ const CurriculumPage = () => {
                         A cargo de tareas en áreas Front-end y Back-end en
                         diferentes proyectos utilizando herramientas como React,
                         NextJs, Angular, NodeJs, GraphQL, Apollo GraphQL,
-                        GitHub, Jira, Firebase. Entregando siempre resultados de
-                        alta calidad y productos mínimos viables (MVP). También
-                        mejorando mis habilidades de comunicación y liderazgo.
+                        GitHub, Jira, Firebase.
+                      </p>
+                      <p className="timeline__text">
+                        Entregando siempre resultados de alta calidad y
+                        productos mínimos viables (MVP). También mejorando mis
+                        habilidades de comunicación y liderazgo.
                       </p>
                     </div>
                   </article>
